@@ -238,9 +238,9 @@ class Xlsx2csv:
             closefile = True
         try:
             writer = csv.writer(outfile, quoting=csv.QUOTE_MINIMAL, delimiter=self.options['delimiter'], lineterminator=self.options['lineterminator'])
-            sheetfile = self._filehandle("xl/worksheets/sheet%i.xml" % sheetid)
+            sheetfile = self._filehandle("xl/worksheets/worksheet%i.xml" % sheetid)
             if not sheetfile and sheetid == 1:
-                sheetfile = self._filehandle("xl/worksheets/sheet.xml")
+                sheetfile = self._filehandle("xl/worksheets/worksheet.xml")
             if not sheetfile:
                 raise SheetNotFoundException("Sheet %s not found" %sheetid)
             try:
